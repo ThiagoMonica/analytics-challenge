@@ -27,23 +27,23 @@ st.divider()
 
 st.write('### Atualmente na Argentina')
 
-df_populacao = pd.read_csv('evolucao_internet\\dados\\populacao_pais.csv')
+df_populacao = pd.read_csv('https://raw.githubusercontent.com/ThiagoMonica/analytics-challenge/refs/heads/main/evolucao_internet/dados/populacao_pais.csv')
 df_populacao_argentina = df_populacao[df_populacao['Country Code'] == 'ARG']
 populacao_argentina = df_populacao_argentina['2023'].values[0]
 populacao_argentina = np.floor(populacao_argentina/1000000)
 populacao_argentina = "{:,.0f}".format(populacao_argentina)
 
-df_pib = pd.read_csv('evolucao_internet\\dados\\pib_pais.csv')
+df_pib = pd.read_csv('https://raw.githubusercontent.com/ThiagoMonica/analytics-challenge/refs/heads/main/evolucao_internet/dados/pib_pais.csv')
 df_pib_argentina = df_pib[df_pib['Country Code'] == 'ARG']
 pib_argentina = df_pib_argentina['2023'].values[0]
 pib_argentina = np.floor(pib_argentina/1000000)
 pib_argentina = "{:,.0f}".format(pib_argentina)
 
-df_uso_internet = pd.read_csv('evolucao_internet\\dados\\uso_internet.csv')
+df_uso_internet = pd.read_csv('https://raw.githubusercontent.com/ThiagoMonica/analytics-challenge/refs/heads/main/evolucao_internet/dados/uso_internet.csv')
 df_uso_internet_argentina = trata_dados(df_uso_internet, 'Internet_Users_Percent')
 uso_internet_argentina = df_uso_internet_argentina[df_uso_internet_argentina['Year'] == '2023']['Internet_Users_Percent'].values[0]
 
-df_expectativa_vida = pd.read_csv('evolucao_internet\\dados\\expectativa_vida.csv')
+df_expectativa_vida = pd.read_csv('https://raw.githubusercontent.com/ThiagoMonica/analytics-challenge/refs/heads/main/evolucao_internet/dados/expectativa_vida.csv')
 
 df_expectativa_vida_argentina = df_expectativa_vida[(df_expectativa_vida['Country Code'] == 'ARG') & (df_expectativa_vida['Series Name'] == 'Life expectancy at birth, total (years)')]
 expectativa_vida_argentina = df_expectativa_vida_argentina['2022 [YR2022]'].values[0]
@@ -91,7 +91,8 @@ st.write('#### Expansão da Largura de Banda de Internet 📈')
 st.write("""
     A largura de banda de internet é a capacidade de transmissão de dados de uma rede de internet.
 """)
-df_largura_banda = pd.read_excel('evolucao_internet\\dados\\largura_banda.xlsx')
+
+df_largura_banda = pd.read_csv('https://raw.githubusercontent.com/ThiagoMonica/analytics-challenge/refs/heads/main/evolucao_internet/dados/largura_banda.csv')
 df_largura_banda_argentina = df_largura_banda[df_largura_banda['Economy ISO3'] == 'ARG']
 df_largura_banda_argentina.drop(columns=['Economy ISO3', 'Economy Name', 'Indicator ID', 'Attribute 2', 'Attribute 3', 'Partner'], inplace=True)
 df_largura_banda_argentina = df_largura_banda_argentina.melt(id_vars=['Indicator', 'Attribute 1'], var_name='Year', value_name='Bandwidth')
@@ -156,7 +157,7 @@ st.write("""
     Acesso à eletricidade é a porcentagem da população com acesso à eletricidade. Os dados são coletados da indústria, pesquisas nacionais e fontes internacionais.
 """)
 
-df_acesso_eletricidade = pd.read_csv('evolucao_internet\\dados\\acesso_eletricidade.csv')
+df_acesso_eletricidade = pd.read_csv('https://raw.githubusercontent.com/ThiagoMonica/analytics-challenge/refs/heads/main/evolucao_internet/dados/acesso_eletricidade.csv')
 df_acesso_eletricidade_argentina = trata_dados(df_acesso_eletricidade, 'Access_Electricity_Percent')
 
 chart_acesso_eletricidade = alt.Chart(df_acesso_eletricidade_argentina).mark_line().encode(
@@ -185,7 +186,7 @@ st.write("""
     A pesquisa e desenvolvimento é um indicador do esforço de um país em inovação e desenvolvimento tecnológico.
 """)
 
-df_pesquisa_desenvolvimento = pd.read_csv('evolucao_internet\\dados\\publicacao_artigos.csv')
+df_pesquisa_desenvolvimento = pd.read_csv('https://raw.githubusercontent.com/ThiagoMonica/analytics-challenge/refs/heads/main/evolucao_internet/dados/publicacao_artigos.csv')
 df_pesquisa_desenvolvimento_argentina = trata_dados(df_pesquisa_desenvolvimento, 'Research_Development')
 df_pesquisa_desenvolvimento_argentina['Research_Development'] = df_pesquisa_desenvolvimento_argentina['Research_Development'].astype(int)
 

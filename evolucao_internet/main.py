@@ -50,18 +50,18 @@ expectativa_vida_argentina = df_expectativa_vida_argentina['2022 [YR2022]'].valu
 expectativa_vida_argentina = "{:,.1f}".format(expectativa_vida_argentina)
 
 col1, col2 = st.columns(2, gap='medium')
-col1.metric('População (2023)', f'{populacao_argentina}MM habitantes')
-col1.metric('Expectativa de Vida (2022)', f'{expectativa_vida_argentina} anos')
+col1.metric('População (2023) 👨‍👩‍👧‍👦', f'{populacao_argentina}MM habitantes')
+col1.metric('Expectativa de Vida (2022) 👴', f'{expectativa_vida_argentina} anos')
 
-col2.metric('PIB (2023)', f'{pib_argentina}MM USD')
-col2.metric('População com Acesso à Internet (2023)', f'{uso_internet_argentina:.2f}%')
+col2.metric('PIB (2023) 💸', f'{pib_argentina}MM USD')
+col2.metric('População com Acesso à Internet (2023) 🌐', f'{uso_internet_argentina:.2f}%')
 
 
 
 st.divider()
 
 st.write('### Análise das Tendências de Uso da Internet')
-st.write('#### Uso da Internet na Argentina')
+st.write('#### Uso da Internet na Argentina 🌐')
 st.write("""
     O gráfico abaixo mostra a evolução do uso da internet na Argentina.
     Os dados são referentes ao percentual de usuários de internet em relação à população total do país.
@@ -87,7 +87,7 @@ st.write("""
     - Em 2017, a Argentina atingiu 74,3% de usuários de internet.
 """)
 
-st.write('#### Expansão da Largura de Banda de Internet')
+st.write('#### Expansão da Largura de Banda de Internet 📈')
 st.write("""
     A largura de banda de internet é a capacidade de transmissão de dados de uma rede de internet.
 """)
@@ -119,7 +119,7 @@ st.write("""
     - A análise sugere que ao longo dos anos, a Argentina tem investido em infraestrutura de internet de alta velocidade, o que pode ter contribuído para o aumento do uso da internet no país.
 """)
 
-st.write('#### Aquisição de Dispositivos Eletrônicos')
+st.write('#### Aquisição de Dispositivos Eletrônicos 📱')
 st.write("""
     A seguir, analisamos a aquisição de dispositivos eletrônicos na Argentina.
     Os dados são referentes à porcentagem de indivíduos que possuem um celular e de domicílios que possuem um computador.
@@ -150,7 +150,7 @@ st.write("""
 st.divider()
 
 st.write('### Análise das Causas do Uso da Internet')
-st.write('#### Acesso à Eletricidade')
+st.write('#### Acesso à Eletricidade ⚡')
 st.write("""
     Para entender as causas do aumento do uso da internet na Argentina, vamos analisar o acesso à eletricidade no país.
     Acesso à eletricidade é a porcentagem da população com acesso à eletricidade. Os dados são coletados da indústria, pesquisas nacionais e fontes internacionais.
@@ -178,7 +178,7 @@ st.write("""
     - A análise sugere uma relação positiva entre o acesso à eletricidade e o crescimento do uso da internet ao longo dos anos.
     """)
 
-st.write('#### Avanço da Pesquisa e Desenvolvimento')
+st.write('#### Avanço da Pesquisa e Desenvolvimento 📚')
 st.write("""
     A seguir, analisamos a evolução do quantidade de pesquisas e artigos científicos publicados na Argentina.
     Artigos científicos e técnicos referem-se ao número de artigos científicos e de engenharia publicados nos seguintes campos: física, biologia, química, matemática, medicina clínica, pesquisa biomédica, engenharia e tecnologia, e ciências da terra e do espaço.
@@ -206,7 +206,7 @@ st.write("""
 
 st.divider()
 
-st.write('### Conclusão')
+st.write('### Conclusão ✅')
 st.write("""
     - O uso da internet na Argentina aumentou consideravelmente nos últimos anos.
     - A partir de 2009, o uso da internet cresceu de forma mais acelerada. O acesso à eletricidade e o avanço em pesquisa e desenvolvimento podem ter contribuído para esse crescimento.

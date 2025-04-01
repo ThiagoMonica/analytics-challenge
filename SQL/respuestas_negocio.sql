@@ -54,7 +54,7 @@ ORDER BY year, month, total_revenue DESC; -- Ordenar por año, mes y monto total
 
 -- 3. Se solicita poblar una nueva tabla con el precio y estado de los Ítems a fin del día. Tener en cuenta que debe ser reprocesable. Vale resaltar que en la tabla Item, vamos a tener únicamente el último estado informado por la PK definida. (Se puede resolver a través de StoredProcedure) 
 CREATE TABLE IF NOT EXISTS db_marketplace.ItemStatus (
-    execution_id BIGINT PRIMARY KEY, -- ID de ejecución
+    execution_id BIGINT AUTO_INCREMENT PRIMARY KEY, -- ID de ejecución
     item_id BIGINT, -- ID del ítem
     price FLOAT, -- Precio del ítem
     status INT, -- Estado del ítem
@@ -62,12 +62,16 @@ CREATE TABLE IF NOT EXISTS db_marketplace.ItemStatus (
     FOREIGN KEY (item_id) REFERENCES db_marketplace.Item(id) -- Llave foránea a la tabla Item
 );
 
+DELIMITER $$
+
 CREATE PROCEDURE CaptureItemStatus() -- Procedimiento almacenado para capturar el estado de los ítems
 BEGIN
     INSERT INTO db_marketplace.ItemStatus (item_id, price, status, execution_date) -- Insertar datos en la tabla ItemStatus
     SELECT id, price, status, CURRENT_TIMESTAMP -- Seleccionar ID, precio, estado y fecha actual
     FROM db_marketplace.Item; -- Tabla de ítems
-END;
+END$$
+
+DELIMITER ;
 
 -- Llamada diaria para capturar el estado de los ítems
 CALL CaptureItemStatus();
